@@ -4,27 +4,35 @@ class Carousel {
         this.leftButton = this.element.querySelector('.left-button');
         this.rightButton = this.element.querySelector('.right-button');
         this.images = this.element.querySelectorAll('.img');
-        console.log(this.images);
+        this.imageData = this.images.forEach(image => {
+            new CarouselImage(image);
+        })
 
-        this.imgData = document.querySelectorAll(`.img[data-tab='${this.images.dataset.tab}']`);
-        this.leftButton.addEventListener('click', () => this.moveLeft());
-        this.rightButton.addEventListener('click', () => this.moveRight());
-        console.log(this.imgData);
+
+        this.leftButton.addEventListener('click', () => this.button());
+        this.rightButton.addEventListener('click', () => this.button());
+    }
+
+    button() {
+        console.log('left');
+    }
+}
+
+class CarouselImage {
+    constructor(image) {
+        this.image = image;
+        this.imgData = this.image.dataset.tab;
+        console.log(this.imgData)
     }
     moveLeft() {
         console.log('left');
-        this.images.forEach(image => {
-            image.classList.remove('img-active');
-        });
+        this.image.classList.remove('img-active');
     }
 
     moveRight() {
         console.log(this.images);
-        this.images.forEach(image => {
-            image.classList.remove('img-active');
-        });
+        this.image.classList.remove('img-active');
     }
-
 }
 
 let carousel = document.querySelectorAll('.carousel').forEach(carousel => new Carousel(carousel));
