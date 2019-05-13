@@ -6,7 +6,7 @@ class Carousel {
         this.images = this.element.querySelectorAll('.img');
         console.log(this.images);
 
-        this.imgData = document.querySelectorAll(`.img[data-tab='${this.element.dataset.tab}']`);
+        this.imgData = document.querySelectorAll(`.img[data-tab='${this.images.dataset.tab}']`);
         this.leftButton.addEventListener('click', () => this.moveLeft());
         this.rightButton.addEventListener('click', () => this.moveRight());
         console.log(this.imgData);
