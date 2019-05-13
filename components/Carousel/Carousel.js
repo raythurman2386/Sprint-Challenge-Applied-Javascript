@@ -4,16 +4,25 @@ class Carousel {
         this.leftButton = this.element.querySelector('.left-button');
         this.rightButton = this.element.querySelector('.right-button');
         this.images = this.element.querySelectorAll('.img');
+        console.log(this.images);
 
+        this.imgData = document.querySelectorAll(`.img[data-tab='${this.element.dataset.tab}']`);
         this.leftButton.addEventListener('click', () => this.moveLeft());
         this.rightButton.addEventListener('click', () => this.moveRight());
+        console.log(this.imgData);
     }
     moveLeft() {
         console.log('left');
+        this.images.forEach(image => {
+            image.classList.remove('img-active');
+        });
     }
 
     moveRight() {
-        console.log('right');
+        console.log(this.images);
+        this.images.forEach(image => {
+            image.classList.remove('img-active');
+        });
     }
 
 }

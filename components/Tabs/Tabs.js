@@ -28,7 +28,6 @@ class TabLink {
   }
 
   selectTab() {
-    console.log(this.cards);
     // Select all elements with the .tab class on them
     const tabs = document.querySelectorAll('.tab');
 
